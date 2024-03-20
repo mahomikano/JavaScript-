@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript5</title>
+</head>
+<body>
+    <img id="image" src="snoopy.jpg" alt="画像">
+
+    <script>
+        // 画像要素を取得
+        var image = document.getElementById("image");
+        
+        // 初期サイズ
+        var imageSize = 100; // パーセンテージで表現
+
+        // マウスホイールイベントに対する処理
+        image.addEventListener("wheel", function(event) {
+            // マウスホイールの上向きスクロール（拡大）
+            if (event.deltaY < 0) {
+                imageSize += 10;
+            }
+            // マウスホイールの下向きスクロール（縮小）
+            else {
+                imageSize -= 10;
+            }
+
+            // 最小サイズと最大サイズを設定
+            if (imageSize < 10) {
+                imageSize = 10;
+            }
+            if (imageSize > 200) {
+                imageSize = 200;
+            }
+
+            // 画像のサイズを変更
+            image.style.width = imageSize + "%";
+
+            // デフォルトのスクロール動作を無効にする
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>

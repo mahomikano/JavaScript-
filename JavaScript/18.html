@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript18</title>
+</head>
+<body>
+    <select id="dropdown">
+        <option value="1">選択1</option>
+        <option value="2">選択2</option>
+        <option value="3">選択3</option>
+    </select>
+
+    <script>
+        var dropdown = document.getElementById("dropdown");
+
+        // セレクトボックスの選択肢をクリックしたときの処理
+        dropdown.addEventListener("click", function() {
+            reverseOptions(dropdown);
+        });
+
+        // オプションの順番を逆転する関数
+        function reverseOptions(selectElement) {
+            var options = Array.from(selectElement.options);
+            selectElement.innerHTML = "";
+            options.reverse().forEach(function(option) {
+                selectElement.appendChild(option);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript9</title>
+</head>
+<body>
+    <div id="dragIcon" class="hidden">➡</div>
+
+    <script>
+        // ドラッグアイコン要素を取得
+        const dragIcon = document.getElementById("dragIcon");
+
+        // ドラッグ開始座標
+        let startX, startY;
+
+        // ドラッグの方向を示すアイコンを表示する関数
+        function showDragIcon(x, y) {
+            dragIcon.style.left = x + "px";
+            dragIcon.style.top = y + "px";
+            dragIcon.classList.remove("hidden");
+        }
+
+        // ドラッグ終了時にアイコンを隠す関数
+        function hideDragIcon() {
+            dragIcon.classList.add("hidden");
+        }
+
+        document.addEventListener("mousedown", (event) => {
+            startX = event.clientX;
+            startY = event.clientY;
+        });
+
+        document.addEventListener("mousemove", (event) => {
+            if (startX !== undefined && startY !== undefined) {
+                const deltaX = event.clientX - startX;
+                const deltaY = event.clientY - startY;
+                const angle = Math.atan2(deltaY, deltaX);
+                const degrees = (angle * 180) / Math.PI;
+                showDragIcon(event.clientX, event.clientY);
+                dragIcon.style.transform = `rotate(${degrees}deg)`;
+            }
+        });
+
+        document.addEventListener("mouseup", () => {
+            hideDragIcon();
+        });
+    </script>
+
+    <style>
+        #dragIcon {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            pointer-events: none;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</body>
+</html>
