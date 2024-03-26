@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS24</title>
+    <style>
+        #element {
+            width: 100px;
+            height: 100px;
+            background-color: #f0f0f0;
+            position: absolute; /* 絶対配置にする */
+            cursor: pointer; /* ドラッグ可能であることを示すカーソルにする */
+        }
+    </style>
+</head>
+<body>
+
+<!-- ドラッグ&ドロップ可能な要素 -->
+<div id="element"></div>
+
+<script>
+    var element = document.getElementById("element");
+    var offsetX, offsetY, isDragging = false;
+
+    // マウスを要素上で押下したときのイベント
+    element.addEventListener("mousedown", function(e) {
+        isDragging = true;
+        offsetX = e.clientX - element.getBoundingClientRect().left;
+        offsetY = e.clientY - element.getBoundingClientRect().top;
+    });
+
+    // マウスを動かしたときのイベント
+    document.addEventListener("mousemove", function(e) {
+        if (!isDragging) return; // ドラッグ中でなければ処理しない
+
+        var x = e.clientX - offsetX;
+        var y = e.clientY - offsetY;
+
+        element.style.left = x + "px";
+        element.style.top = y + "px";
+    });
+
+    // マウスボタンを離したときのイベント
+    document.addEventListener("mouseup", function() {
+        isDragging = false;
+    });
+
+</script>
+
+</body>
+</html>

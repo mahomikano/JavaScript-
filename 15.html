@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript15</title>
+</head>
+<body>
+    <script>
+        var inactivityTimeout; // インアクティビティのタイムアウト用の変数
+
+        // ページ上で何らかのアクション（マウスクリックやキーボード入力など）がある場合に、タイマーをリセット
+        function resetInactivityTimer() {
+            clearTimeout(inactivityTimeout);
+            inactivityTimeout = setTimeout(function() {
+                alert("まだいますか？"); // 1分間のインアクティビティ後にアラートを表示
+            }, 60000); // 1分はミリ秒で指定
+        }
+
+        // ページ上で何かアクションがあったときにタイマーをリセット
+        window.addEventListener("click", resetInactivityTimer);
+        window.addEventListener("mousemove", resetInactivityTimer);
+        window.addEventListener("keydown", resetInactivityTimer);
+
+        // 最初のタイマーをセット
+        resetInactivityTimer();
+    </script>
+</body>
+</html>

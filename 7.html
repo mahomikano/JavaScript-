@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JsvsScript7</title>
+</head>
+<body>
+    <div id="windowSize">ウィンドウの幅と高さ: </div>
+
+    <script>
+        // ウィンドウサイズ表示用の要素を取得
+        var windowSizeElement = document.getElementById("windowSize");
+
+        // ウィンドウのサイズが変更されたときの処理
+        function updateWindowSize() {
+            var windowWidth = window.innerWidth;
+            var windowHeight = window.innerHeight;
+            windowSizeElement.textContent = "ウィンドウの幅と高さ: " + windowWidth + " x " + windowHeight;
+        }
+
+        // 初回表示とウィンドウのリサイズ時にウィンドウサイズを更新
+        window.addEventListener("resize", updateWindowSize);
+        updateWindowSize();
+    </script>
+</body>
+</html>
+</html>
