@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript14</title>
+</head>
+<body>
+    <div id="fadeOutElement" style="width: 200px; height: 200px; background-color: blue;"></div>
+
+    <script>
+        // フェードアウトさせる要素を取得
+        var fadeOutElement = document.getElementById("fadeOutElement");
+
+        // マウスが要素の外に移動したときの処理
+        fadeOutElement.addEventListener("mouseleave", function() {
+            fadeOutElement.style.transition = "opacity 1s";
+            fadeOutElement.style.opacity = 0;
+        });
+    </script>
+</body>
+</html>

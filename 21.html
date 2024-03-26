@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript21</title>
+    <style>
+        /* ズーム時のスタイル */
+        .zoomed-in {
+            transform: scale(2);  /* 2倍のサイズに拡大 */
+            cursor: zoom-out;    /* カーソルをzoom-outの形に変更 */
+            transition: transform 0.4s; /* ズーム効果を滑らかに */
+        }
+    </style>
+</head>
+<body>
+
+<!-- 画像要素 -->
+<img id="zoomImage" src="https://via.placeholder.com/150" alt="Placeholder Image">
+
+<script>
+    var image = document.getElementById("zoomImage");
+
+    // 画像がクリックされたときの処理
+    image.addEventListener("click", function() {
+        // 画像がズームされているかどうかをチェックし、それに応じてクラスを切り替える
+        if (this.classList.contains("zoomed-in")) {
+            this.classList.remove("zoomed-in");
+        } else {
+            this.classList.add("zoomed-in");
+        }
+    });
+</script>
+
+</body>
+</html>

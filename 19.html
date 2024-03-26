@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript19</title>
+</head>
+<body>
+    <!-- チェックボックス -->
+    <label>
+        <input type="checkbox" id="toggleCheckbox">内容を表示/非表示
+    </label>
+    
+    <!-- 関連する内容 -->
+    <div id="relatedContent" style="display:none;">
+        内容を表示/非表示します。
+    </div>
+
+    <script>
+        var checkbox = document.getElementById("toggleCheckbox");
+        var content = document.getElementById("relatedContent");
+
+        // チェックボックスの状態が変更されたときの処理
+        checkbox.addEventListener("change", function() {
+            if (this.checked) {
+                content.style.display = "block";  // チェックされた場合、内容を表示
+            } else {
+                content.style.display = "none";   // チェックが解除された場合、内容を非表示
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript12</title>
+</head>
+<body>
+    <textarea id="textarea" rows="4" cols="50"></textarea>
+    <p>文字数: <span id="charcount">0</span></p>
+
+    <script>
+        // テキストエリア要素と文字数表示用の要素を取得
+        var textarea = document.getElementById("textarea");
+        var charcount = document.getElementById("charcount");
+
+        // テキストエリアの入力内容が変化したときに文字数をカウントして表示
+        textarea.addEventListener("input", function() {
+            var text = textarea.value;
+            var count = text.length;
+            charcount.textContent = count;
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS25</title>
+</head>
+<body>
+
+<audio id="audioElement" controls>
+    <source src="ながれぼし.mp3" type="audio/mp3">
+    あなたのブラウザは音声タグをサポートしていません。
+</audio>
+
+<!-- ボリューム調整のスライダー -->
+<label>Volume: </label>
+<input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1">
+
+<script>
+    var audioElement = document.getElementById("audioElement");
+    var volumeSlider = document.getElementById("volumeSlider");
+
+    // スライダーの値が変わった時のイベントハンドラ
+    volumeSlider.addEventListener("input", function() {
+        audioElement.volume = volumeSlider.value;
+    });
+</script>
+
+</body>
+</html>
